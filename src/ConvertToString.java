@@ -1,16 +1,16 @@
-public class ConvertToString {
+import Exceptions.ExcecaoCustomizada;
 
-    public void numberToWords(char num[]) {
+public class ConvertToString extends ExcecaoCustomizada {
+
+    public void numberToWords(char num[]) throws ExcecaoCustomizada {
         int len = num.length;
 
         if (len == 0) {
-            System.out.println("Não permitido vazio");
-            return;
+            throw new ExcecaoCustomizada("Não permitido vazio");
         }
 
         if (len > 3) {
-            System.out.println("\n O número tem mais de 3 dígitos");
-            return;
+            throw new ExcecaoCustomizada("Tamanho não suportado");
         }
 
         String[] unidade = new String[]{"Zero", "Um", "Dois", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove"};
